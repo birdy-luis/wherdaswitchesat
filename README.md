@@ -2,10 +2,10 @@
 
 This is to help u/melonbred find where all dem switches are.
 
-![](istockphoto-968279248-1024x1024.jpg)
+![](img/istockphoto-968279248-1024x1024.jpg)
 
 ## Requirements
-- >= python3.7/pip
+- python3.7/pip
 - [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 - [Selenium WebDriver for Chrome](https://chromedriver.storage.googleapis.com/index.html?path=81.0.4044.69/)
 - [Twilio and your own trial account](https://www.twilio.com/)
