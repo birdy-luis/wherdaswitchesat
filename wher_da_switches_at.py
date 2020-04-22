@@ -5,7 +5,7 @@ import os
 import json
 import pandas as pd
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
+#from selenium.webdriver.chrome.options import Options
 from bs4 import BeautifulSoup
 from twilio.rest import Client
 
@@ -45,7 +45,6 @@ def driver_setup(path, url):
     driver.get(args.url)
 
     # copied full xpath from page to get `data-url`
-
     element = driver.find_element_by_xpath('/html/body/div[1]/div[3]/div[1]/div[2]/div[2]/div[2]/div[2]/div[3]/div[3]/div/div/div[1]').get_attribute('data-url')
 
     # now use webdriver to open `data-url`?
