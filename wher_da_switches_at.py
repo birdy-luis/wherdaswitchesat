@@ -5,6 +5,7 @@ import os
 import json
 import pandas as pd
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from bs4 import BeautifulSoup
 from twilio.rest import Client
 
@@ -32,8 +33,13 @@ args = parser.parse_args()
 
 def driver_setup(path, url):
 
+    # headless option to not open a browser window every time.
+    options = Options()
+    options.add_argument('--headless')
+    options.add_argument('--window-size=1920x1080')
+
     # path set within env variable. make sure it's directed to the right place.
-    driver = webdriver.Chrome(path)
+    driver = webdriver.Chrome(path, options=options)
 
     # list of URL extensions within the text file.
     driver.get(args.url)
