@@ -10,7 +10,7 @@ from twilio.rest import Client
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--chromedriver', required=True,
+parser.add_argument('--chromedriver', default=os.environ.get('CHROMEDRIVER_PATH'),
                                       help='path to your chromedriver')
 
 parser.add_argument('--url', required=True,
@@ -37,6 +37,14 @@ def driver_setup(path, url):
 
     # list of URL extensions within the text file.
     driver.get(args.url)
+
+    # copied full xpath from page to get `data-url`
+
+    element = driver.find_element_by_xpath('/html/body/div[1]/div[3]/div[1]/div[2]/div[2]/div[2]/div[2]/div[3]/div[3]/div/div/div[1]').get_attribute('data-url')
+
+    # now use webdriver to open `data-url`?
+
+    driver.get(element)
 
     return driver
 
